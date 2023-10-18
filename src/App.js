@@ -1,12 +1,14 @@
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header';
+import Navigation from './components/Navigation';
 
-function App() {
-  return (
+const App = () => (
+  <Router>
     <div className="App">
-      <Header />
+      <Navigation />
     </div>
-  );
-}
+  </Router>
+);
 
 export default App;

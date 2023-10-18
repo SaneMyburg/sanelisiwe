@@ -1,4 +1,4 @@
-header {
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -26,22 +26,16 @@ header {
   align-items: center;
 }
 
-.menu-icon {
-  font-size: 24px;
+.show-hamburger {
+  display: none;
 }
 
-/* Media query for screens up to 468px wide */
-@media (max-width: 468px) {
-  header {
-    flex-direction: column;
-    text-align: center;
+@media (max-width: 768px) {
+  .show-hamburger {
+    display: block;
   }
 
-  .header-left, .header-right {
-    margin-bottom: 10px;
-  }
-
-  .logo {
-    margin-right: 0;
+  .hide-links {
+    display: none;
   }
 }

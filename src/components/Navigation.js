@@ -18,7 +18,6 @@ const Navigation = () => {
   };
 
   return (
-    <div className="header">
       <Navbar expand="lg" variant="light" bg="light" className="header">
         <div className="header-right">
           <Navbar.Brand className="logo" href="/">S</Navbar.Brand>
@@ -39,7 +38,6 @@ const Navigation = () => {
           </Navbar.Collapse>
         </div>
       </Navbar>
-    </div>
   );
 };
 
