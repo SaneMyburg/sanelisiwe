@@ -1,4 +1,10 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .header {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -8,34 +14,56 @@
 }
 
 .header-left {
-  display: flex;
-  align-items: center;
+  width: 30%;
 }
 
 .logo {
   font-size: 24px;
   margin-right: 10px;
+  background-color: #343434;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 50%;
 }
 
 .name {
   font-size: 16px;
+  color: #343434;
 }
 
 .header-right {
   display: flex;
   align-items: center;
+  margin: 0 0 0 1rem;
 }
 
 .show-hamburger {
   display: none;
 }
 
+.nav-link {
+  margin: 0 2%;
+  color: #343434;
+}
+
+a {
+  text-decoration: none;
+}
+
 @media (max-width: 768px) {
   .show-hamburger {
     display: block;
+    border: none;
+    background-color: #343434 !important;
+    color: #fff;
+    padding: 5px 5px 0 5px;
   }
 
   .hide-links {
     display: none;
+  }
+
+  .header-left {
+    width: 15%;
   }
 }
