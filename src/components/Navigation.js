@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
+import { Nav, Navbar, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
 import { HamburgerIcon } from '../icons';
 
@@ -11,10 +11,14 @@ const links = [
 ];
 
 const Navigation = () => {
-  const [showLinks, setShowLinks] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
-  const toggleMenu = () => {
-    setShowLinks(!showLinks);
+  const toggleOverlay = () => {
+    setShowOverlay(!showOverlay);
+  };
+
+  const closeOverlay = () => {
+    setShowOverlay(false);
   };
 
   return (
@@ -25,11 +29,11 @@ const Navigation = () => {
           <Navbar.Brand className="name" href="/">Sane Myburg</Navbar.Brand>
         </div>
         <div className="header-left">
-          <Navbar.Toggle className="show-hamburger" onClick={toggleMenu}>
+          <Navbar.Toggle className="show-hamburger" onClick={toggleOverlay}>
             <HamburgerIcon />
           </Navbar.Toggle>
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className={`mr-auto ${showLinks ? 'show-hamburger' : 'hide-links'}`}>
+            <Nav className="hide-links">
               {links.map((link) => (
                 <Nav.Link as={NavLink} to={link.path} key={link.text} className="nav-link">
                   {link.text}
@@ -39,6 +43,20 @@ const Navigation = () => {
           </Navbar.Collapse>
         </div>
       </Navbar>
+      {showOverlay && (
+        <div className="overlay">
+          <div className="overlay-content">
+            <p className="menu">Menu</p>
+            <p className="name-mobile">Sane M</p>
+            {links.map((link) => (
+              <Nav.Link as={NavLink} to={link.path} key={link.text} onClick={closeOverlay} className="nav-link">
+                {link.text}
+              </Nav.Link>
+            ))}
+            <Button className="close-button" onClick={closeOverlay}>x</Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
